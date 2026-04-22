@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>俄羅斯方塊</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>俄羅斯方塊</h1>
+        <div class="game-area">
+            <div id="game-board" class="game-board"></div>
+            <div class="sidebar">
+                <p>分數: <span id="score">0</span></p>
+                <p>下一個方塊:</p>
+                <div id="next-block" class="next-block"></div>
+                <p>特殊消除: <span id="special-clear-count">3</span></p> <!-- 新增：直接顯示特殊消除次數 -->
+                <label for="background-select">背景:</label>
+                <select id="background-select">
+                    <option value="default">預設</option>
+                    <option value="dark-blue">深藍</option>
+                    <option value="gradient-purple">漸層紫</option>
+                    <option value="grid">網格</option>
+                </select>
+                <button id="start-button">開始遊戲</button>
+                <button id="pause-button">暫停遊戲</button>
+                <button id="instructions-button">遊戲說明</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 遊戲說明彈出視窗 -->
+    <div id="instructions-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>遊戲說明</h2>
+            <p><strong>目標:</strong> 透過移動和旋轉方塊來填滿並消除行，獲得分數。</p>
+            <p><strong>操作:</strong></p>
+            <ul>
+                <li><strong>← → (左右箭頭):</strong> 移動方塊</li>
+                <li><strong>↓ (下箭頭):</strong> 加速下落</li>
+                <li><strong>↑ (上箭頭) 或 Z:</strong> 旋轉方塊</li>
+                <li><strong>空白鍵:</strong> 啟動特殊消除能力 (剩餘 <span id="special-clear-count-modal">3</span> 次) - 消除最下方的一個非空行。</li>
+            </ul>
+            <p><strong>分數:</strong> 消除的行數越多，分數越高。</p>
+            <p><strong>遊戲結束:</strong> 當方塊堆疊到遊戲板頂部時，遊戲結束。</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
